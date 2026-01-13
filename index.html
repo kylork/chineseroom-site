@@ -88,6 +88,21 @@
             font-weight: 600;
             font-size: var(--text-lg);
             color: var(--primary-color);
+            text-decoration: none;
+            cursor: pointer;
+            transition: opacity 0.2s ease; /* This handles the smooth opacity fade */
+            display: inline-block;
+        }
+        
+        @keyframes glitch {
+            0% { text-shadow: 2px 0 red, -2px 0 cyan; }
+            50% { text-shadow: -2px 0 red, 2px 0 cyan; }
+            100% { text-shadow: 1px 0 red, -1px 0 cyan; }
+        }
+        
+        .logo:hover {
+            opacity: 0.7;
+            animation: glitch 0.3s linear infinite; /* Added 'infinite' here */
         }
 
         .header-controls {
@@ -1067,7 +1082,7 @@
 <body>
     <div class="app-container">
         <header class="header">
-            <div class="logo">Chinese Room</div>
+            <a href="https://github.com/kylork/chineseroom-site" target="_blank" class="logo">Chinese Room</a>
             <div class="header-controls">
                 <button id="playPauseBtn" class="play-pause-btn" onclick="togglePlayPause()" title="Start conversation">▶</button>
                 <div class="header-divider"></div>

@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Chatbot Studio</title>
+    <title>Chinese Room</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.10/dist/katex.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=IBM+Plex+Mono:wght@400;600&display=swap');
@@ -1067,7 +1067,7 @@
 <body>
     <div class="app-container">
         <header class="header">
-            <div class="logo">Chatbot Studio</div>
+            <div class="logo">Chinese Room</div>
             <div class="header-controls">
                 <button id="playPauseBtn" class="play-pause-btn" onclick="togglePlayPause()" title="Start conversation">▶</button>
                 <div class="header-divider"></div>
@@ -1997,7 +1997,7 @@
                         'Content-Type': 'application/json',
                         'Authorization': `Bearer ${apiKey}`,
                         'HTTP-Referer': window.location.href,
-                        'X-Title': 'Chatbot Studio'
+                        'X-Title': 'Chinese Room'
                     },
                     body: JSON.stringify(payload),
                     signal: abortController?.signal
@@ -3430,17 +3430,17 @@
                 updateDisplayNameVisibility();
                 
                 // Add initial system message with copy button
-                addMessage('System', 'Welcome to Chatbot Studio! Configure your chatbots in the settings panel, select models, then type a topic below to begin.', 'system');
+                addMessage('System', 'Welcome to Chinese Room! Configure your chatbots in the settings panel, select models, then type a topic below to begin.', 'system');
                 
                 updateStatus('Ready');
                 updateScrollLockState();
-                console.log('initApp: Chatbot Studio initialized successfully');
+                console.log('initApp: Chinese Room initialized successfully');
             } catch (error) {
                 console.error('initApp: Failed to initialize app:', error);
                 showMessage('Failed to initialize application', 'error');
                 
                 // Still add the welcome message even if there's an error
-                addMessage('System', 'Welcome to Chatbot Studio! There was an error initializing the application, but you can still use the app.', 'system');
+                addMessage('System', 'Welcome to Chinese Room! There was an error initializing the application, but you can still use the app.', 'system');
             }
         }
 

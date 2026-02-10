@@ -667,7 +667,7 @@
             padding-left: 1.25em;
             list-style-position: outside;
         }
-
+        
         .message-content li {
             margin: 0.15em 0;
         }
@@ -714,8 +714,8 @@
 
         .chat-input {
             flex: 1;
-            min-height: 36px;
-            max-height: 120px;
+            min-height: 48px;
+            max-height: 210px;
             resize: none;
             font-size: var(--text-sm);
             padding: var(--space-sm);
@@ -732,8 +732,8 @@
         }
 
         .send-btn {
-            min-width: 36px;
-            min-height: 36px;
+            min-width: 48px;
+            min-height: 48px;
             border-radius: 50%;
             display: flex;
             align-items: center;
@@ -1098,7 +1098,7 @@
 
         <main class="main-content">
             <aside class="sidebar" id="sidebar">
-                <div class="settings-section collapsed" id="apiSection">
+                <div class="settings-section" id="apiSection">
                     <div class="settings-header" onclick="toggleSection('apiSection')">
                         <h3 class="settings-title settings-title-muted">API Configuration</h3>
                         <span class="collapse-icon">▼</span>
@@ -1204,7 +1204,7 @@
                                 <span class="subsection-title">Parameters</span>
                                 <span class="collapse-icon" id="bot1ParamsIcon">▼</span>
                             </div>
-                            <div class="subsection-content collapsed" id="bot1Params">
+                            <div class="subsection-content" id="bot1Params">
                                 <div class="form-group">
                                     <label class="form-label">Max Output Tokens: <span id="bot1TokenValue">16000</span></label>
                                     <div class="slider-container">
@@ -1253,7 +1253,7 @@
                                 <span class="subsection-title">Prompts</span>
                                 <span class="collapse-icon" id="bot1PromptsIcon">▼</span>
                             </div>
-                            <div class="subsection-content collapsed" id="bot1Prompts">
+                            <div class="subsection-content" id="bot1Prompts">
                                 <div class="form-group">
                                     <label class="form-label">System Prompt</label>
                                     <textarea class="form-textarea" id="bot1SystemPrompt" style="height: 80px; min-height: 50px;" placeholder="Highest priority instructions..."></textarea>
@@ -1310,7 +1310,7 @@
                                 <span class="subsection-title">Parameters</span>
                                 <span class="collapse-icon" id="bot2ParamsIcon">▼</span>
                             </div>
-                            <div class="subsection-content collapsed" id="bot2Params">
+                            <div class="subsection-content" id="bot2Params">
                                 <div class="form-group">
                                     <label class="form-label">Max Output Tokens: <span id="bot2TokenValue">16000</span></label>
                                     <div class="slider-container">
@@ -1359,7 +1359,7 @@
                                 <span class="subsection-title">Prompts</span>
                                 <span class="collapse-icon" id="bot2PromptsIcon">▼</span>
                             </div>
-                            <div class="subsection-content collapsed" id="bot2Prompts">
+                            <div class="subsection-content" id="bot2Prompts">
                                 <div class="form-group">
                                     <label class="form-label">System Prompt</label>
                                     <textarea class="form-textarea" id="bot2SystemPrompt" style="height: 80px; min-height: 50px;" placeholder="Highest priority instructions..."></textarea>
@@ -1442,7 +1442,8 @@
 
         // Section collapse state
         let collapsedSections = {};
-        let collapsedSubsections = { bot1Params: true, bot1Prompts: true, bot2Params: true, bot2Prompts: true };
+        
+        let collapsedSubsections = { bot1Params: false, bot1Prompts: false, bot2Params: false, bot2Prompts: false };
         
         // Display names toggle
         let enableDisplayNames = false;
@@ -3320,7 +3321,7 @@
         // Auto-resize textarea
         document.getElementById('messageInput').addEventListener('input', function() {
             this.style.height = 'auto';
-            this.style.height = Math.min(this.scrollHeight, 120) + 'px';
+            this.style.height = Math.min(this.scrollHeight, 210) + 'px';
         });
 
         // Fullscreen event listeners

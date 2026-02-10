@@ -1,0 +1,46 @@
+/* CSS Variables - Light/Dark mode support */
+
+:root {
+    /* Colors */
+    --primary-color: #007AFF;
+    --surface-color: #FFFFFF;
+    --on-surface: #000000;
+    --surface-variant: #F2F2F7;
+    --border-color: #E5E5EA;
+    --text-secondary: #666666;
+    --success-color: #34C759;
+    --warning-color: #FF9500;
+    --error-color: #FF3B30;
+    
+    /* Typography - Responsive clamp values */
+    --text-xs: clamp(10px, 2.5vw, 12px);
+    --text-sm: clamp(12px, 3vw, 14px);
+    --text-base: clamp(14px, 3.5vw, 16px);
+    --text-lg: clamp(16px, 4vw, 18px);
+    
+    /* Spacing */
+    --space-xs: clamp(2px, 0.5vw, 4px);
+    --space-sm: clamp(4px, 1vw, 8px);
+    --space-md: clamp(8px, 2vw, 12px);
+    --space-lg: clamp(12px, 3vw, 16px);
+    
+    /* Layout */
+    --sidebar-width: 480px;
+    
+    /* Safe area insets for mobile */
+    --safe-top: env(safe-area-inset-top, 0px);
+    --safe-bottom: env(safe-area-inset-bottom, 0px);
+    --safe-left: env(safe-area-inset-left, 0px);
+    --safe-right: env(safe-area-inset-right, 0px);
+}
+
+/* Dark mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --surface-color: #1C1C1E;
+        --on-surface: #FFFFFF;
+        --surface-variant: #2C2C2E;
+        --border-color: #38383A;
+        --text-secondary: #ABABAB;
+    }
+}

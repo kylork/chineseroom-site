@@ -1,0 +1,112 @@
+/* Layout - App container, header, main content */
+
+.app-container {
+    display: grid;
+    grid-template-rows: auto 1fr auto;
+    height: 100vh;
+    height: 100dvh;
+}
+
+/* Header */
+.header {
+    background: var(--surface-variant);
+    padding: var(--space-sm);
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+
+.logo {
+    font-weight: 600;
+    font-size: var(--text-lg);
+    color: var(--primary-color);
+    text-decoration: none;
+    cursor: pointer;
+    transition: opacity 0.2s ease;
+    display: inline-block;
+}
+
+.logo:hover {
+    opacity: 0.7;
+    animation: glitch 0.3s linear infinite;
+}
+
+.header-controls {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+}
+
+.header-divider {
+    width: 1px;
+    height: 24px;
+    background: var(--border-color);
+    margin: 0 var(--space-xs);
+}
+
+/* Main content area */
+.main-content {
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+/* Sidebar resizer */
+.sidebar-resizer {
+    display: none;
+}
+
+/* Status bar */
+.status-bar {
+    background: var(--surface-variant);
+    padding: var(--space-xs) var(--space-sm);
+    border-top: 1px solid var(--border-color);
+    font-size: var(--text-xs);
+    color: var(--text-secondary);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* Toast notifications */
+.toast-container {
+    position: fixed;
+    top: 60px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1000;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    pointer-events: none;
+}
+
+.toast {
+    padding: var(--space-sm) var(--space-md);
+    border-radius: 4px;
+    font-size: var(--text-xs);
+    color: white;
+    animation: toast-in 0.3s ease;
+    pointer-events: auto;
+    min-width: 200px;
+    text-align: center;
+}
+
+.toast.error {
+    background: var(--error-color);
+}
+
+.toast.success {
+    background: var(--success-color);
+}
+
+.toast.hiding {
+    animation: toast-out 0.3s ease forwards;
+}

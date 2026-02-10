@@ -1,0 +1,84 @@
+/* Responsive styles - Mobile and desktop adaptations */
+
+/* Desktop layout */
+@media (min-width: 768px) {
+    .main-content {
+        flex-direction: row;
+    }
+
+    .sidebar-resizer {
+        display: block;
+        flex: 0 0 8px;
+        width: 8px;
+        cursor: col-resize;
+        background: var(--border-color);
+        opacity: 0.4;
+        position: relative;
+        z-index: 2;
+        transition: opacity 0.2s ease, background 0.2s ease;
+    }
+
+    .sidebar-resizer:hover,
+    .sidebar-resizer.dragging {
+        opacity: 0.9;
+        background: var(--primary-color);
+    }
+}
+
+/* Mobile layout */
+@media (max-width: 767px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        left: -100%;
+        width: 300px;
+        height: 100vh;
+        z-index: 999;
+        transition: left 0.3s ease;
+        padding-top: calc(var(--space-sm) + var(--safe-top));
+        resize: none;
+        min-width: auto;
+        max-width: none;
+    }
+
+    .sidebar.active {
+        left: 0;
+    }
+
+    .sidebar-resizer {
+        display: none;
+    }
+
+    .scroll-to-latest {
+        right: var(--space-md);
+        bottom: 96px;
+    }
+}
+
+/* Fullscreen styles */
+:fullscreen {
+    padding: 0;
+}
+
+:fullscreen .header {
+    padding-top: var(--safe-top);
+}
+
+:fullscreen .chat-input-area {
+    padding-bottom: calc(var(--space-sm) + var(--safe-bottom));
+}
+
+/* Focus visible styles for accessibility */
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+    outline: 2px solid var(--primary-color);
+    outline-offset: 2px;
+}
+
+/* Prevent text selection on UI elements */
+button,
+[role="button"] {
+    user-select: none;
+}
